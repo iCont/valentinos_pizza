@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class User_type extends Model
 {
     use HasFactory;
+
+    // relacion uno a uno inversa
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
 }

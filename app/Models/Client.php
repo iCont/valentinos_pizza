@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
     use HasFactory;
+
+      // relacion uno a mucho inversa
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
 }

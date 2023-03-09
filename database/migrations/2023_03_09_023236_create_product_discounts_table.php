@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('product_discounts', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('discount_id');
+
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('discount_id')->references('id')->on('discounts');
             $table->timestamps();
         });
     }

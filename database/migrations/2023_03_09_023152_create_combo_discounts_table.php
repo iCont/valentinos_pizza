@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('combo_discounts', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger('combo_id');
+            $table->unsignedBigInteger('discount_id');
+
+            $table->foreign('combo_id')->references('id')->on('combos');
+            $table->foreign('discount_id')->references('id')->on('discounts');
+
             $table->timestamps();
         });
     }
