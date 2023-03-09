@@ -19,8 +19,11 @@ return new class extends Migration
             $table->string('email');
             $table->string('address');
             $table->string('phone');
+            $table->unsignedBigInteger('user_id');
             $table->boolean('status');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

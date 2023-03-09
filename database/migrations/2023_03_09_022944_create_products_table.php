@@ -19,8 +19,11 @@ return new class extends Migration
             $table->string('url');
             $table->decimal('price', 8, 2);
             $table->string('combo_ids');
+            $table->unsignedBigInteger('product_type_id');
             $table->boolean('status');
             $table->timestamps();
+
+            $table->foreign('product_type_id')->references('id')->on('product_types');
         });
     }
 

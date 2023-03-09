@@ -18,8 +18,11 @@ return new class extends Migration
             $table->string('name');
             $table->string('url');
             $table->decimal('price', 8, 2);
+            $table->unsignedBigInteger('product_type_id');
             $table->boolean('status');
             $table->timestamps();
+
+            $table->foreign('product_type_id')->references('id')->on('product_types');
         });
     }
 
