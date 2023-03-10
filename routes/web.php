@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductTypeController;
+use App\Models\Product_type;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +23,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/administration',[AdminController::class,'index'])->name('administration.index');
+Route::get('/product_type',[ProductTypeController::class,'index'])->name('product_type.index');
+Route::post('/product_type_register',[ProductTypeController::class,'store'])->name('product_type_register.store');
