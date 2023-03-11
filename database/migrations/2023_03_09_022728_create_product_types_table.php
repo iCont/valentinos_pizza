@@ -16,8 +16,11 @@ return new class extends Migration
         Schema::create('product_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->unsignedBigInteger('branch_id');
             $table->boolean('status');
             $table->timestamps();
+
+            $table->foreign('branch_id')->references('id')->on('branches');
         });
     }
 

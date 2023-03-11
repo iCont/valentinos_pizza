@@ -13,15 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('combo_discounts', function (Blueprint $table) {
+        Schema::create('branches', function (Blueprint $table) {
             $table->id();
-
-            $table->unsignedBigInteger('combo_id');
-            $table->unsignedBigInteger('discount_id');
-
-            $table->foreign('combo_id')->references('id')->on('combos');
-            $table->foreign('discount_id')->references('id')->on('discounts');
-
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -33,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('combo_discounts');
+        Schema::dropIfExists('branches');
     }
 };

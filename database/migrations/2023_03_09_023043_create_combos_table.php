@@ -19,9 +19,11 @@ return new class extends Migration
             $table->string('url');
             $table->float('price');
             $table->unsignedBigInteger('product_type_id');
+            $table->unsignedBigInteger('branch_id');
             $table->boolean('status');
             $table->timestamps();
 
+            $table->foreign('branch_id')->references('id')->on('branches');
             $table->foreign('product_type_id')->references('id')->on('product_types');
         });
     }

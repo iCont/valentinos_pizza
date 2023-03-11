@@ -18,8 +18,11 @@ return new class extends Migration
             $table->integer('discount');
             $table->string('condition');
             $table->date('date_end_at');
+            $table->unsignedBigInteger('branch_id');
             $table->boolean('status');
             $table->timestamps();
+
+            $table->foreign('branch_id')->references('id')->on('branches');
         });
     }
 

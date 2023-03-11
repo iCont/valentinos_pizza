@@ -73,9 +73,12 @@ class ProductTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Product_type $product_type)
     {
-        //
+        // dd($request);
+        $product_type->name=$request->tipo_producto;
+        $product_type->update();
+        return back()->with('success','ok');
     }
 
     /**

@@ -20,10 +20,12 @@ return new class extends Migration
             $table->string('address');
             $table->string('phone');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('branch_id');
             $table->boolean('status');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('branch_id')->references('id')->on('branches');
         });
     }
 

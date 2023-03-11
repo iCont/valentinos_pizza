@@ -27,3 +27,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/administration',[AdminController::class,'index'])->name('administration.index');
 Route::get('/product_type',[ProductTypeController::class,'index'])->name('product_type.index');
 Route::post('/product_type_register',[ProductTypeController::class,'store'])->name('product_type_register.store');
+Route::put('/product_type/{product_type}',[ProductTypeController::class,'update'])->name('product_type_edit.update');
+Route::delete('/product_type/{product_type}',[ProductTypeController::class,'destroy'])->name('product_type.destroy');
