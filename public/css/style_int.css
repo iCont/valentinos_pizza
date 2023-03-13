@@ -1,6 +1,6 @@
 :root {
     /*------ Colores */
-    --valentinos-red-strong: #ad0101;
+    --valentinos-red-strong: #e01f32;
     --valentinos-red-ligth: #ca4631;
     --valentinos-purple-strong: #250c67;
     --valentinos-purple-ligth: #7b2ea0;
@@ -19,10 +19,10 @@
 
 html {
     /* font-size: 62.5%; */
-    font-family: 'Montserrat', sans-serif !important;
     font-size: 70%;
 }
 body {
+    font-family: 'Lexend Deca', sans-serif;
     color: var(--valentinos-purple-strong) !important;
 }
 * {
@@ -49,6 +49,16 @@ th {
 tr {
     font-size: 1.6rem;
     font-weight: 600;
+}
+.button_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#button_delete{
+    border: none;
+    background-color: transparent;
+    margin-left: 12px;
 }
 .input_style{
     height: 60px;
@@ -157,24 +167,23 @@ tr {
     color: var(--white-color);
     font-size: 1.5rem;
     font-weight: 700;
-    background: var(--valentinos-purple-ligth);
     width: 110px;
     height: 40px;
     border-radius: 6px;
-    border: none;
+    border: 1px var(--valentinos-purple-strong) solid;
     box-shadow: -1px 4px 8px -2px rgba(122, 122, 122, 0.75);
     -webkit-box-shadow: -1px 4px 8px -2px rgba(122, 122, 122, 0.75);
     -moz-box-shadow: -1px 4px 8px -2px rgba(122, 122, 122, 0.75);
 }
 .btn_normal_secondary_small {
-    color: var(--white-color);
+    color: var(--valentinos-red-strong);
+    background-color: #fff;
     font-size: 1rem;
     font-weight: 600;
-    background: var(--valentinos-purple-ligth);
     width: 60px;
     height: 35px;
     border-radius: 6px;
-    border: none;
+    border: 2px var(--valentinos-red-strong) solid;
     box-shadow: -1px 4px 8px -2px rgba(122, 122, 122, 0.75);
     -webkit-box-shadow: -1px 4px 8px -2px rgba(122, 122, 122, 0.75);
     -moz-box-shadow: -1px 4px 8px -2px rgba(122, 122, 122, 0.75);

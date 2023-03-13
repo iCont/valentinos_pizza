@@ -39,6 +39,7 @@ class ProductTypeController extends Controller
         // dd($request);
         Product_type::create([
             'name'=>$request->tipo_producto,
+            'branch_id'=>1,
             'status'=>1,
         ]);
         return back()->with('success','ok');
@@ -87,8 +88,8 @@ class ProductTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Product_type $product_type){
+        $product_type->delete();
+        return back()->with('success','ok');
     }
 }

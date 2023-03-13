@@ -12,31 +12,31 @@
 </section>
 <section>
     <div class="container contenedor mt-5">
-        <div class="col-12 py-4 text-center"><h1>TIPO DE PRODUCTOS</h1></div>
+        <div class="col-12 py-4 text-center"><h1>TIPO DE GASTOS</h1></div>
         <table id="myTable" class="dataTable table-striped">
             <thead>
                 <tr>
-                    <th>Producto</th>
+                    <th>Gasto</th>
                     <th>Estado</th>
                     <th class="text-center">Opciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($product_types as $product_type)
+                @foreach ($expense_types as $expense_type)
                 <tr>
                     <td>
-                        {{$product_type->name}}
+                        {{$expense_type->name}}
                     </td>
                     <td>
-                        @if ($product_type->status===1)
+                        @if ($expense_type->status===1)
                             Activo
                         @else
                             Desactivado
                         @endif
                     </td>
                     <td class="text-center button_wrapper">
-                        <i class="bi bi-pencil-square" id="icon_square" data-bs-toggle="modal" data-bs-target="#update_modal{{$product_type->id}}"></i>
-                        <form class="form_delete" action="{{ route('product_type.destroy', $product_type->id) }}"
+                        <i class="bi bi-pencil-square" id="icon_square" data-bs-toggle="modal" data-bs-target="#update_modal{{$expense_type->id}}"></i>
+                        <form class="form_delete" action="{{ route('expense_type.destroy', $expense_type->id) }}"
                             method="POST">
                             @csrf
                             @method('DELETE')
@@ -57,16 +57,16 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title fs-5" id="register_modalLabel">Tipo de productos</h2>
+                <h2 class="modal-title fs-5" id="register_modalLabel">Tipo de Gasto</h2>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="form_product_type" action="{{route('product_type_register.store')}}"  method="POST">
+                <form id="form_expense_type" action="{{route('expense_type_register.store')}}"  method="POST">
                     @csrf
                     <div class="container">
                         <div class="row">
                             <div class="col-12">
-                                <input type="text" class="form-control input_style" name="tipo_producto" id="tipo_producto_id" placeholder="Snacks">
+                                <input type="text" class="form-control input_style" name="expense_type" id="expense_type_id" placeholder="Abarrotes">
                             </div>
                         </div>
                     </div>
@@ -81,24 +81,24 @@
 </div>
 {{-- modal --}}
 <!-- Modal -->
-@foreach ($product_types as $product_type)
-<div class="modal fade" id="update_modal{{$product_type->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+@foreach ($expense_types as $expense_type)
+<div class="modal fade" id="update_modal{{$expense_type->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
 aria-labelledby="update_modalLabel" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
         <div class="modal-header">
-            <h2 class="modal-title fs-5" id="update_modalLabel">Actualizar tipo de productos</h2>
+            <h2 class="modal-title fs-5" id="update_modalLabel">Actualizar tipo de gasto</h2>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form id="form_product_type_update"  action="{{ route('product_type_edit.update', $product_type) }}"   method="POST">
+            <form id="form_expense_type_update"  action="{{ route('expense_type_edit.update', $expense_type) }}"   method="POST">
                 @method('PUT')
                 @csrf
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <input type="hidden" name="product_type_id" value="{{$product_type->id}}">
-                            <input type="text" class="form-control input_style" name="tipo_producto" id="tipo_producto_id" placeholder="Snacks" value="{{old('tipo_producto',$product_type->name)}}">
+                            <input type="hidden" name="expense_type_id" value="{{$expense_type->id}}">
+                            <input type="text" class="form-control input_style" name="expense_type" id="expense_type_id" placeholder="Snacks" value="{{old('expense_type',$expense_type->name)}}">
                         </div>
                     </div>
                 </div>

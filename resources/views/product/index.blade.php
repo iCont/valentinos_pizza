@@ -12,31 +12,31 @@
 </section>
 <section>
     <div class="container contenedor mt-5">
-        <div class="col-12 py-4 text-center"><h1>TIPO DE PRODUCTOS</h1></div>
+        <div class="col-12 py-4 text-center"><h1>PRODUCTOS</h1></div>
         <table id="myTable" class="dataTable table-striped">
             <thead>
                 <tr>
-                    <th>Producto</th>
+                    <th>Productos</th>
                     <th>Estado</th>
                     <th class="text-center">Opciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($product_types as $product_type)
+                @foreach ($products as $product)
                 <tr>
                     <td>
-                        {{$product_type->name}}
+                        {{$product->name}}
                     </td>
                     <td>
-                        @if ($product_type->status===1)
+                        @if ($product->status===1)
                             Activo
                         @else
                             Desactivado
                         @endif
                     </td>
                     <td class="text-center button_wrapper">
-                        <i class="bi bi-pencil-square" id="icon_square" data-bs-toggle="modal" data-bs-target="#update_modal{{$product_type->id}}"></i>
-                        <form class="form_delete" action="{{ route('product_type.destroy', $product_type->id) }}"
+                        <i class="bi bi-pencil-square" id="icon_square" data-bs-toggle="modal" data-bs-target="#update_modal{{$product->id}}"></i>
+                        <form class="form_delete" action="{{ route('product.destroy', $product->id) }}"
                             method="POST">
                             @csrf
                             @method('DELETE')
@@ -57,16 +57,43 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title fs-5" id="register_modalLabel">Tipo de productos</h2>
+                <h2 class="modal-title fs-5" id="register_modalLabel">Producto</h2>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="form_product_type" action="{{route('product_type_register.store')}}"  method="POST">
+                <form id="form_product" action="{{route('product_register.store')}}"  method="POST">
                     @csrf
                     <div class="container">
                         <div class="row">
-                            <div class="col-12">
-                                <input type="text" class="form-control input_style" name="tipo_producto" id="tipo_producto_id" placeholder="Snacks">
+                            <div class="col-12 mt-3">
+                                <label for="name" class="form-label">Nombre producto:</label>
+                                <input type="text" class="form-control input_style" name="name" id="name_id" placeholder="Pizza Hawaina">
+                            </div>
+                            <div class="col-12 mt-3">
+                                <label for="price" class="form-label">Costo:</label>
+                                <input type="text" class="form-control input_style" name="price" id="price_id" placeholder="120.00">
+                            </div>
+                            <div class="col-12 mt-3">
+                                <label for="product_type" class="form-label">Tipo de producto:</label>
+                                <select name="product_type" id="" class="form-control input_style">
+                                    @foreach ($product_types as $product_type)
+                                    <option value="{{$product_type->id}}" {{old('product_type')==$product_type->id ? "selected" : ""}}>{{ $product_type->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <label for="product_type" class="form-label">Imágen de producto</label>
+                                <select name="product_type" id="" class="form-control input_style">
+                                    @foreach ($product_types as $product_type)
+                                    <option value="{{$product_type->id}}" {{old('product_type')==$product_type->id ? "selected" : ""}}>{{ $product_type->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <input class="form-check-input" type="checkbox" value="" id="comboCheck">
+                                <label class="form-check-label" for="comboCheck">
+                                  ¿Pertenece a un combo?
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -81,24 +108,24 @@
 </div>
 {{-- modal --}}
 <!-- Modal -->
-@foreach ($product_types as $product_type)
-<div class="modal fade" id="update_modal{{$product_type->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+@foreach ($products as $product)
+<div class="modal fade" id="update_modal{{$product->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
 aria-labelledby="update_modalLabel" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
         <div class="modal-header">
-            <h2 class="modal-title fs-5" id="update_modalLabel">Actualizar tipo de productos</h2>
+            <h2 class="modal-title fs-5" id="update_modalLabel">Actualizar Producto</h2>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form id="form_product_type_update"  action="{{ route('product_type_edit.update', $product_type) }}"   method="POST">
+            <form id="form_product_update"  action="{{ route('product_edit.update', $product) }}"   method="POST">
                 @method('PUT')
                 @csrf
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <input type="hidden" name="product_type_id" value="{{$product_type->id}}">
-                            <input type="text" class="form-control input_style" name="tipo_producto" id="tipo_producto_id" placeholder="Snacks" value="{{old('tipo_producto',$product_type->name)}}">
+                            <input type="hidden" name="product_id" value="{{$product->id}}">
+                            <input type="text" class="form-control input_style" name="product" id="product_id" placeholder="Snacks" value="{{old('product',$product->name)}}">
                         </div>
                     </div>
                 </div>

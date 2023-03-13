@@ -9,6 +9,7 @@ class Product_type extends Model
 {
     protected $fillable = [
         'name',
+        'branch_id',
         'status'
     ];
     use HasFactory;
