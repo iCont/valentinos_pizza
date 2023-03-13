@@ -60,6 +60,16 @@ tr {
     background-color: transparent;
     margin-left: 12px;
 }
+#comboCheck{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    background-color: var(--valentinos-red-strong);
+}
+.img_input{
+    background-color: var(--valentinos-purple-strong);
+    color: var(--white-color);
+}
 .input_style{
     height: 60px;
     font-size: 1.4rem;
@@ -85,7 +95,6 @@ tr {
 .navbar-brand {
     font-size: 2rem;
 }
-
 .offcanvas {
     background-color: var(--valentinos-purple-strong);
 }

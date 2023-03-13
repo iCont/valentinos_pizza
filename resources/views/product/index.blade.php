@@ -82,16 +82,14 @@
                                 </select>
                             </div>
                             <div class="col-12 mt-3">
-                                <label for="product_type" class="form-label">Imágen de producto</label>
-                                <select name="product_type" id="" class="form-control input_style">
-                                    @foreach ($product_types as $product_type)
-                                    <option value="{{$product_type->id}}" {{old('product_type')==$product_type->id ? "selected" : ""}}>{{ $product_type->name }}</option>
-                                    @endforeach
-                                </select>
+                                <label for="product_type" class="form-label">Imágen de producto:</label>
+                                <div class="custom-file">
+                                    <input type="file" class="form-control" id="image" name="image">
+                                </div>
                             </div>
                             <div class="col-12 mt-3">
                                 <input class="form-check-input" type="checkbox" value="" id="comboCheck">
-                                <label class="form-check-label" for="comboCheck">
+                                <label class="form-check-label input_style" for="comboCheck">
                                   ¿Pertenece a un combo?
                                 </label>
                             </div>
