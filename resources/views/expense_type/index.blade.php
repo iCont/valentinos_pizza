@@ -105,7 +105,7 @@ aria-labelledby="update_modalLabel" aria-hidden="true">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn_normal_secondary_small" data-bs-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn_small">Registrar</button>
+                <button type="submit" class="btn_small">Actualizar</button>
             </div>
         </form>
     </div>

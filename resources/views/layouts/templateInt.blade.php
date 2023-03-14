@@ -62,7 +62,7 @@
                                 <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Productos</a>
+                                <a class="nav-link" href="{{route('product.index')}}">Productos</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Gastos</a>

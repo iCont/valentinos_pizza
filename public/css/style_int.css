@@ -12,11 +12,9 @@
 .prueba {
     border: 1px solid red;
 }
-
 #logo_pq {
     margin-left: 40%;
 }
-
 html {
     /* font-size: 62.5%; */
     font-size: 70%;
@@ -164,9 +162,11 @@ tr {
     font-size: 1rem;
     font-weight: 600;
     background: var(--valentinos-red-strong);
-    width: 60px;
+    width: 70px;
     height: 35px;
     border-radius: 6px;
+    padding-left: 2px;
+    padding-right: 2px;
     border: none;
     box-shadow: -1px 4px 8px -2px rgba(122, 122, 122, 0.75);
     -webkit-box-shadow: -1px 4px 8px -2px rgba(122, 122, 122, 0.75);
@@ -248,4 +248,13 @@ tr {
     color: var(--valentinos-red-strong);
     font-size: 1.6rem;
     font-weight: 600;
+}
+.img_producto{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: -1px 4px 8px -2px rgba(122, 122, 122, 0.75);
+    -webkit-box-shadow: -1px 4px 8px -2px rgba(122, 122, 122, 0.75);
+    -moz-box-shadow: -1px 4px 8px -2px rgba(122, 122, 122, 0.75);
 }
